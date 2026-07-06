@@ -1,13 +1,26 @@
-import { useAppSelector, useAppDispatch } from '../hooks'
-import type { GitHubRepo } from '../store/reposSlice'
+import { useAppSelector } from '../hooks'
+
+const PINNED = [
+  'Capstone-Project-B21-CAP0463',
+  'segmentation-acute-myeloid-leukemia',
+  'Twitter15-16-Pheme2-New-Project',
+  'fe-auto-receipt',
+  'hris-admin-frontend',
+  'hris-frontend'
+]
 
 export default function Projects() {
   const { items, loading, error } = useAppSelector((s) => s.repos)
 
-  const topRepos: GitHubRepo[] = items
-    .filter((r) => !r.fork && !r.archived)
+  const pinned = items
+    .filter((r) => PINNED.includes(r.name))
+    .sort((a, b) => PINNED.indexOf(a.name) - PINNED.indexOf(b.name))
+
+  const rest = items
+    .filter((r) => !r.fork && !r.archived && !PINNED.includes(r.name))
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 6)
+
+  const repos = [...pinned, ...rest].slice(0, 6)
 
   return (
     <section id="projects" className="max-w-5xl mx-auto px-8 py-16 text-center">
@@ -33,7 +46,7 @@ export default function Projects() {
       {!loading && !error && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {topRepos.map((repo) => (
+            {repos.map((repo) => (
               <a
                 key={repo.id}
                 href={repo.html_url}
