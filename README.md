@@ -2,81 +2,75 @@
 
 <div align="center">
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-### A modern, minimalist portfolio showcasing my journey as a Software Engineer
+### Personal portfolio — built with React, TypeScript, Tailwind CSS & Redux
 
-[✨ View Live](https://nurhabibrs.github.io) • [📧 Contact](mailto:nurhabibrs@gmail.com)
+[🌐 Live Site](https://nurhabibrs.github.io) • [📧 Contact](mailto:nurhabibrs@gmail.com)
 
 </div>
 
 ---
 
-## 🎯 About
+## Tech Stack
 
-This is my personal portfolio website, crafted with care to showcase my professional experience, technical skills, and projects. Built with vanilla HTML, CSS, and JavaScript, it demonstrates that simplicity and performance can coexist beautifully.
+| Layer | Technology |
+|-------|-----------|
+| **UI** | React 19, TypeScript, Tailwind CSS v4 |
+| **State** | Redux Toolkit (`@reduxjs/toolkit` + `react-redux`) |
+| **Data** | GitHub REST API (repos fetched at runtime) |
+| **Build** | Vite 6 |
+| **Deploy** | GitHub Actions (`actions/deploy-pages`) |
 
-## ✨ Features
+## Features
 
-- **🌊 Smooth Scroll Animations** - Elements reveal gracefully as you scroll using Intersection Observer API
-- **💫 Floating Ambient Glows** - Animated radial gradients create a dynamic, ethereal atmosphere
-- **📱 Fully Responsive** - Optimized experience across all devices and screen sizes
-- **🎨 Modern Design** - Dark theme with purple accents and glassmorphic cards
-- **⚡ Lightning Fast** - No frameworks, no bloat - just clean, performant code
-- **♿ Accessible** - Semantic HTML and thoughtful UX considerations
+- **GitHub API Integration** — Fetches and displays public repos dynamically
+- **Dark-themed UI** — Purple accents, glassmorphic cards, floating glow effects
+- **Responsive** — Mobile-first grid layout
+- **Skeleton Loading** — Animated placeholders while data loads
+- **CI/CD** — Auto-deployed via GitHub Actions on push to `main`
 
-## 🛠️ Tech Stack
-
-```
-Frontend:
-├── HTML5         → Semantic structure
-├── CSS3          → Animations & responsive design
-│   ├── Radial gradients
-│   ├── Keyframe animations
-│   ├── Backdrop filters
-│   └── CSS Grid & Flexbox
-└── Vanilla JS    → Intersection Observer for reveal effects
-```
-
-## 🎨 Design Philosophy
-
-- **Minimalism**: Less is more - focus on content, not clutter
-- **Accessibility**: Built with semantic HTML and readable typography
-- **Performance**: Zero dependencies, blazing fast load times
-- **Aesthetics**: Purple-to-dark gradient with floating ambient effects
-
-## 📂 Project Structure
+## Project Structure
 
 ```
-nurhabibrs.github.io/
-│
-├── index.html      # Main HTML structure
-├── style.css       # All styling & animations
-├── reveal.js       # Scroll-reveal functionality
-└── README.md       # You are here!
+src/
+├── main.tsx           # Entry point (Redux Provider + root render)
+├── App.tsx            # Root layout, repo fetch dispatch
+├── index.css          # Tailwind import + global styles
+├── hooks.ts           # Typed Redux hooks (useAppSelector, useAppDispatch)
+├── vite-env.d.ts      # Vite type declarations
+├── store/
+│   ├── store.ts       # Redux store config
+│   └── reposSlice.ts  # Async thunk & reducer for GitHub repos
+└── components/
+    ├── Header.tsx     # Sticky nav with GitHub loading indicator
+    ├── Hero.tsx       # Intro section with CTA buttons
+    ├── Experience.tsx # Work history cards
+    ├── Projects.tsx   # Top 6 repos grid (sorted by stars)
+    └── Contact.tsx    # Footer with email & social links
 ```
 
-## 📝 License
+## Development
 
-This project is open source and available under the [MIT License](LICENSE).
+```bash
+npm install       # Install deps
+npm run dev       # Dev server at localhost:5173
+npm run build     # Production build → dist/
+npm run preview   # Preview production build
+```
 
-## 📬 Contact
+## Deployment
 
-Want to collaborate or discuss opportunities?
-
-- **Email**: [nurhabibrs@gmail.com](mailto:nurhabibrs@gmail.com)
-- **GitHub**: [@nurhabibrs](https://github.com/nurhabibrs)
-- **LinkedIn**: [Connect with me](#)
+Push to `main` → GitHub Actions workflow builds and deploys to GitHub Pages automatically.
 
 ---
 
 <div align="center">
 
 **Built with ❤️ by Nur Habib**
-
-⭐ Star this repo if you find it interesting!
 
 </div>
