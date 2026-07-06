@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../hooks'
+import type { GitHubRepo } from '../store/reposSlice'
 
 export default function Projects() {
-  const { items, loading, error } = useSelector((s) => s.repos)
+  const { items, loading, error } = useAppSelector((s) => s.repos)
 
-  const topRepos = items
+  const topRepos: GitHubRepo[] = items
     .filter((r) => !r.fork && !r.archived)
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 6)

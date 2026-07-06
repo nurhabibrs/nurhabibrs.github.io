@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../hooks'
 
 export default function Header() {
-  const { loading } = useSelector((s) => s.repos)
+  const { loading } = useAppSelector((s) => s.repos)
 
   return (
     <header className="fixed top-0 left-0 w-full px-8 py-5 backdrop-blur bg-black/20 border-b border-white/10 z-50 flex justify-between items-center">
