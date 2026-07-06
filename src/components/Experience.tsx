@@ -1,5 +1,14 @@
 const experiences = [
   {
+    company: 'PT Ekosistem Pasar Digital',
+    role: 'Back End Developer',
+    items: [
+      'Developed and maintained backend RESTful APIs for an ERP Supply Chain and Point-of-Sale (POS) system.',
+      'Implemented PowerSync-based offline-first architecture to ensure reliable real-time data synchronization.',
+      'Improved system stability through bug fixes, optimized queries, validation improvements, improved API security, and better error handling.',
+    ],
+  },
+  {
     company: 'PT Bithealth Teknologi Pintar',
     role: 'Associate Software Engineer',
     items: [
